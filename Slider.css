@@ -1,0 +1,45 @@
+.y_slider {
+    position: relative;
+}
+
+.y_slide {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 500ms linear;
+    -moz-transition: opacity 500ms linear;
+    transition: opacity 500ms linear;
+}
+
+.y_slide.active {
+    opacity: 1;
+}
+
+.y_dots {
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+    position: absolute;
+    bottom: .5vw;
+}
+
+.y_dots > span {
+    display: inline-block;
+    width: .9vw;
+    height: .9vw;
+    border: 1px solid white;
+    border-radius: 100%;
+    box-sizing: border-box;
+    margin: 0 .1vw;
+    -webkit-transition: background 500ms linear;
+    -moz-transition: background 500ms linear;
+    transition: background 500ms linear;
+    cursor: pointer;
+}
+
+.y_dots > span.active {
+    background: white;
+}
