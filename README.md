@@ -2,6 +2,8 @@
 Simple slider for fadeIn &amp; fadeOut slides
 
 ## Html
+Include two files: Slider.js &amp; Slider.css
+
 ```html
 <div id="slider">
   <div class="slide"></div>
