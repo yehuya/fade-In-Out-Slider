@@ -19,6 +19,7 @@ new Slider({
   dots: true, // Show slides dots
   intervalTime: 3000, // Speed of slider
   transition: null, // css transition (OPTIONAL)
-  start: 0 // Start from slide number..
+  start: 0, // Start from slide number..
+  stopAndMoveOnSlideClick: true // stop and move by slide click
 });
 ```
