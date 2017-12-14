@@ -1,8 +1,7 @@
 /**
- * Slider
+ * Fade-In-Out-Slider
  * Github: https://github.com/yehuya/fade-In-Out-Slider
  */
-
 
 function Slider(settings){
     this.settings = Object.assign({
@@ -10,7 +9,8 @@ function Slider(settings){
         dots: true,
         intervalTime: 3000,
         transition: null,
-        start: 0
+        start: 0,
+        stopAndMoveOnSlideClick: true
     }, settings);
 
     this.now = this.settings.start; 
@@ -35,7 +35,10 @@ Slider.prototype.elements = function(){
 
 Slider.prototype.addClassToChildren = function(){
     for(var i = 0 ; i < this.slider.children.length ; i ++){
-        this.slider.children[i].classList.add("y_slide");
+        var slide = this.slider.children[i];
+        slide.classList.add("y_slide");
+        
+        if(this.settings.stopAndMoveOnSlideClick) this.slideClick(slide);
     }
 
     return this.slider.querySelectorAll(".y_slide"); 
@@ -93,4 +96,16 @@ Slider.prototype.dotClick = function(index){
     clearInterval(this.interval);
     this.now = index;
     this.carousel();
+}
+
+Slider.prototype.slideClick = function(slideElement){
+    var self = this;
+
+    slideElement.addEventListener("mousedown", function(){
+        clearInterval(self.interval);
+    });
+
+    slideElement.addEventListener("mouseup", function(){
+        self.carousel();
+    });
 }
