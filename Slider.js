@@ -4,14 +4,18 @@
  */
 
 function Slider(settings){
-    this.settings = Object.assign({
+    this.settings = {
         id: null,
         dots: true,
         intervalTime: 3000,
         transition: null,
         start: 0,
         stopAndMoveOnSlideClick: true
-    }, settings);
+    };
+
+    for(var p in this.settings){
+        if(settings.hasOwnProperty(p)) this.settings[p] = settings[p];
+    }
 
     this.now = this.settings.start; 
     this.init();    
